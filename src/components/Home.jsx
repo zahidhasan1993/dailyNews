@@ -1,17 +1,21 @@
 import React from 'react';
+import Navbar from './Navbar';
+import RightSidebar from './pages/shared/RightSidebar';
+
 
 const Home = () => {
     return (
         <div>
-            <div className='grid md:grid-cols-4'>
+            <Navbar></Navbar>
+            <div className='grid md:grid-cols-4 mt-16'>
                 <div className=''>
-                    Side Navbar
+                    lest side
                 </div>
                 <div className='col-span-2'>
                     news are comming here
                 </div>
                 <div className=''>
-                    right side somethings
+                    <RightSidebar></RightSidebar>
                 </div>
 
             </div>
