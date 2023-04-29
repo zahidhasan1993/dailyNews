@@ -10,6 +10,7 @@ import Layout from './components/Layout';
 import Home from './components/Home';
 import About from './components/About';
 import Career from './components/Career';
+import CategoryNews from './components/CategoryNews';
 
 
 const router = createBrowserRouter([
@@ -28,6 +29,11 @@ const router = createBrowserRouter([
       {
         path : "/career",
         element : <Career></Career>
+      },
+      {
+        path : "/category/:id",
+        element : <CategoryNews></CategoryNews>,
+        loader : ({params}) =>fetch(`http://localhost:5000/category/${params.id}`) 
       }
     ]
   }
