@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import RightSidebar from "./pages/shared/RightSidebar";
 import LeftSideBar from "./pages/shared/LeftSideBar";
 import Allnews from "./Allnews";
+import { DataProvider } from "./providers/AuthProvider";
 
 const Home = () => {
+  // const user = useContext(DataProvider);
+  // console.log(user);
   const [news,setNews] = useState([]);
   useEffect(()=>{
     fetch('http://localhost:5000/news')

@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaGofore, FaGithubSquare,FaFacebook,FaTwitter,FaInstagram } from "react-icons/fa";
 import Qzone from "./Qzone";
 import bg from "../../../assets/bg1.png"
+import { DataProvider } from "../../providers/AuthProvider";
 
 const RightSidebar = () => {
+  const {user} = useContext(DataProvider);
+
+  console.log(user);
   return (
     <div>
       <h1 className="text-xl font-bold mb-4">Login With</h1>
@@ -35,7 +39,7 @@ const RightSidebar = () => {
     <h2 className="text-3xl">Create an Amazing Newspaper</h2>
     <p>Discover thousands of options, easy to customize layouts, one-click to import demo and much more.</p>
 
-    <button className="btn btn-error">Learn More</button>
+    <button className="btn btn-error text-white">Learn More</button>
    
   </div>
 </div>
