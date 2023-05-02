@@ -6,12 +6,12 @@ const LeftSideBar = () => {
   const [category, setCategory] = useState([]);
   const [news, setNews] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/category")
+    fetch("https://daily-news-server-rbofa08ay-zahidhasan1993.vercel.app/category")
       .then((res) => res.json())
       .then((data) => setCategory(data));
   }, []);
   useEffect(() => {
-    fetch("http://localhost:5000/category/4")
+    fetch("https://daily-news-server-rbofa08ay-zahidhasan1993.vercel.app/category/4")
       .then((res) => res.json())
       .then((data) => setNews(data));
   }, []);

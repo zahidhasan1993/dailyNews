@@ -9,7 +9,7 @@ const Home = () => {
   // console.log(user);
   const [news,setNews] = useState([]);
   useEffect(()=>{
-    fetch('http://localhost:5000/news')
+    fetch('https://daily-news-server-rbofa08ay-zahidhasan1993.vercel.app/news')
     .then(res => res.json())
     .then(data => setNews(data))
   },[])

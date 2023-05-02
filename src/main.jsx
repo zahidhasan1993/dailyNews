@@ -36,13 +36,13 @@ const router = createBrowserRouter([
         path: "category/:id",
         element: <CategoryNews></CategoryNews>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/category/${params.id}`),
+          fetch(`https://daily-news-server-rbofa08ay-zahidhasan1993.vercel.app/category/${params.id}`),
       },
       {
         path: "newsdetails/:id",
         element: <PrivateRoute><NewsDetails></NewsDetails></PrivateRoute>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/news/${params.id}`),
+          fetch(`https://daily-news-server-rbofa08ay-zahidhasan1993.vercel.app/news/${params.id}`),
       },
       {
         path : "terms",
