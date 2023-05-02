@@ -3,8 +3,12 @@ import { DataProvider } from '../providers/AuthProvider';
 import { Navigate, useLocation } from 'react-router-dom';
 
 const PrivateRoute = ({children}) => {
-    const {user} = useContext(DataProvider);
+    const {user,loader} = useContext(DataProvider);
     const location = useLocation();
+
+    if (loader) {
+        return <button className="btn loading md:mt-28 md:ml-[45rem]">loading</button>
+    }
     // console.log(location);
 
     if (user) {

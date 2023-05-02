@@ -8,25 +8,32 @@ const auth = getAuth(app)
 
 const AuthProvider = ({ children }) => {
   const [user,setUser] = useState(null);
+  const [loader,setLoader] = useState(true);
+
   const googleProvider = new GoogleAuthProvider();
 
   const googleLogin = () => {
-    return signInWithPopup(auth, googleProvider)
+    setLoader(true);
+    return signInWithPopup(auth, googleProvider);
     
   };
   const emailLogin= (email,password) => {
+    setLoader(true)
       return createUserWithEmailAndPassword(auth,email,password);
   }
   const userLogout = () => {
+    setLoader(true)
     return signOut(auth);
   };
   const userLogin = (email,password) => {
+    setLoader(true)
     return signInWithEmailAndPassword(auth,email,password)
   };
 
   useEffect(() => {
    const unsubscribe = onAuthStateChanged(auth, loggedUser => {
-      setUser(loggedUser)
+      setUser(loggedUser);
+      setLoader(false)
     });
 
     return () => {
@@ -40,7 +47,8 @@ const AuthProvider = ({ children }) => {
     setUser,
     emailLogin,
     userLogin,
-    userLogout
+    userLogout,
+    loader,
   };
 
   return (

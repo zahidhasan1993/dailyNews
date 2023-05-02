@@ -13,6 +13,7 @@ import AuthProvider from "./components/providers/AuthProvider";
 import Login from "./components/authentication/Login";
 import Register from "./components/authentication/Register";
 import PrivateRoute from "./components/privateRooute/PrivateRoute";
+import Terms from "./components/Terms";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/news/${params.id}`),
       },
+      {
+        path : "terms",
+        element : <Terms></Terms>
+      }
       
     ],
   },

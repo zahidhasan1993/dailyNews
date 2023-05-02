@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Navbar from "../Navbar";
 import { Link } from "react-router-dom";
 import { DataProvider } from "../providers/AuthProvider";
 import { Result } from "postcss";
 
 const Register = () => {
+  const [accepted,setAccepted] = useState(false);
+
   const { googleLogin, setUser, emailLogin } = useContext(DataProvider);
   const signUpGoogle = () => {
     googleLogin()
@@ -38,6 +40,10 @@ const Register = () => {
         console.log(error.message);
       })
 
+  }
+
+  const handleAccept = (e) => {
+    setAccepted(e.target.checked);
   }
 
   // console.log(googleLogin);
@@ -102,11 +108,11 @@ const Register = () => {
                 </label>
               </div>
               <div className="form-control flex flex-row items-center gap-2">
-                <input type="checkbox" className="checkbox checkbox-xs" />
-                <p>Accept all terms and conditions</p>
+                <input type="checkbox" className="checkbox checkbox-xs" onClick={handleAccept} />
+                <Link to="/terms" className="text-blue-600">Accept all terms and conditions</Link>
               </div>
               <div className="form-control flex flex-row items-center justify-center mt-6">
-                <button className="btn btn-primary">Register</button>
+                <button className="btn btn-primary" disabled={!accepted}>Register</button>
                 <button onClick={signUpGoogle}>
                   <img
                     className="w-24"
